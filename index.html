@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS v5.3.8 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+            <a class="navbar-brand" href="#">Lab. Robótica</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="menuPrincipal">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                            <a class="nav-link" href="#proyectos">Proyectos</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#equipo">Equipo</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#contacto">Contacto</a>
+                            </li>
+                        </ul>
+            </div>
+        </nav>
+
+        
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            Bienvenido al sitio oficial del Laboratorio de Robótica.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Laboratorio de Robótica</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Diseño, construcción y programación de sistemas robóticos aplicados.</p>
+                </div>
+            </div>
+
+            <div id="proyectos"class="row mt-5 gx-4">
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="accordion mt-4" id="detalleProyectos">
+                        <img class="card-img-top" src="https://c4.wallpaperflare.com/wallpaper/178/63/602/technology-robot-robotics-machine-wallpaper-preview.jpg" alt="Card image">
+                        <h3 class="card-title">Robot móvil diferencial</h3>
+                        <span class="badge bg-danger mb-2">Activo</span>
+                        <p class="card-text">Plataforma con dos motores independientes para navegación autónoma.</p>
+                        <a href="#" class="text-decoration-none text-reset"><div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#colapso1">
+                            Robot móvil diferencial — Detalle técnico
+                            </button>
+                            </h2>
+                            <div id="colapso1" class="accordion-collapse collapse"
+                            data-bs-parent="#detalleProyectos">
+                            <div class="accordion-body">
+                            Plataforma de tracción diferencial con dos motores DC controlados
+                            de forma independiente, sensores de distancia y control mediante
+                            microcontrolador ESP32.
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <img class="card-img-top" src="https://www.redalyc.org/journal/6735/673571919001/2389-9468-cpa-16-02-1_gf15.png" alt="Card image">
+                    <h3 class="card-title">Proyecto CanSAT</h3>
+                    <span class="badge bg-warning text-dark mb-2">En pruebas</span>
+                    <p class="card-text">Simulación de un satélite en formato lata para telemetría 
+                    atmosférica.</p>
+                    <a href="#" class="btn btn-outline-primary">Ver detalles</a>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJSzffnJbkP0WsfYlCvESxA8In8pIO9rsaUiA4V7pbvDPsDIAA-8zufKE&s=10" alt="Card image">
+                        <h3 class="card-title">Brazo robótico</h3>
+                        <span class="badge bg-info text-white mb-2">En desarrollo</span>
+                        <p class="card-text">Manipulador de varios grados de libertad para tareas de precisión.</p>
+                        <a href="#" class="btn btn-outline-primary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row mt-4">
+                <div id="contacto" class="col-12">
+                    <div class="card shadow-sm bg-dark">
+                        <div class="card-body text-center">
+                            <h4>¿Quieres unirte al laboratorio?</h4>
+                            <p>Buscamos estudiantes interesados en robótica de servicio y sistemas embebidos.</p>
+                            <a href="#contacto" class="btn btn-success">Contáctanos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="row mt-5" id="equipo">
+    <div class="col-12">
+        <h2>Equipo</h2>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 mt-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Coordinación general</h5>
+                <p class="card-text">Responsable del diseño y planeación de proyectos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 mt-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Desarrollo de firmware</h5>
+                <p class="card-text">Programación de microcontroladores y sensores.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-4 mt-3">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Diseño mecánico</h5>
+                <p class="card-text">Estructuras, chasis y ensamble de plataformas móviles.</p>
+            </div>
+        </div>
+    </div>
+</div> 
+        <div class="row mt-5" id="contacto">
+    <div class="col-12 col-lg-8 mx-auto">
+        <h2>Contacto</h2>
+        <form novalidate>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa tu nombre.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa un correo electrónico válido.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                <div class="invalid-feedback">
+                    Por favor escribe un mensaje.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+
+        </div>
+<footer class="bg-dark text-light py-4 mt-5">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 col-md-4">
+        <h5>Laboratorio de Robótica</h5>
+        <p>Universidad de Montemorelos</p>
+    </div>
+ <div class="col-12 col-md-4">
+    <h5>Enlaces</h5>
+    <p><a href="#proyectos" class="text-light">Proyectos</a></p>
+    <p><a href="#equipo" class="text-light">Equipo</a></p>
+ </div>
+ <div class="col-12 col-md-4">
+    <h5>Contacto</h5>
+    <p>laboratorio.robotica@um.edu.mx</p>
+ </div>
+ </div>
+ </div>
+</footer>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
