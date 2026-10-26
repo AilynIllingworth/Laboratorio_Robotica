@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <title>Laboratorio de Robótica - FITEC</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS: Bootstrap, Toastr y Lightbox2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Ajuste para alertas dinámicas */
+        .alerta-flotante { position: fixed; top: 20px; right: 20px; z-index: 9999; }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR (Interactividad 5: Smooth Scroll y Tema) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-info fw-bold" href="#">Lab. Robótica UM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link scroll-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link scroll-link" href="#equipo">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link scroll-link" href="#contacto">Contacto</a></li>
+                    <!-- Botón de Tema (Interactividad 4) -->
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button id="btn-tema" class="btn btn-sm btn-outline-light">☀️ Cambiar Tema</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- ENCABEZADO -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h1>Sistemas Embebidos</h1>
+                <p class="lead">Diseño, construcción y programación de hardware.</p>
+            </div>
+        </div>
+
+        <div class="row mb-4" id="proyectos">
+            <div class="col-12">
+                <h4>Portafolio de Proyectos</h4>
+                <div class="btn-group mt-2" role="group">
+                    <button type="button" class="btn btn-primary btn-filtro" data-filtro="todos">Todos</button>
+                    <button type="button" class="btn btn-outline-primary btn-filtro" data-filtro="activo">Activos</button>
+                    <button type="button" class="btn btn-outline-primary btn-filtro" data-filtro="pruebas">En Pruebas</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETAS -->
+        <div class="row gx-4 gy-4 mb-5" id="contenedor-tarjetas">
+            <div class="col-sm-6 col-lg-4 tarjeta-proy" data-estado="activo">
+                <div class="card shadow-sm h-100 border-secondary">
+                    <!-- PLUGIN LIGHTBOX2: Agregamos el link envolviendo la imagen -->
+                    <a href="https://c4.wallpaperflare.com/wallpaper/178/63/602/technology-robot-robotics-machine-wallpaper-preview.jpg" data-lightbox="galeria-robots" data-title="Chasis y motores del Robot Diferencial">
+                        <img class="card-img-top" src="https://c4.wallpaperflare.com/wallpaper/178/63/602/technology-robot-robotics-machine-wallpaper-preview.jpg" alt="Robot diferencial">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title">Robot diferencial</h3>
+                        <span class="badge bg-success mb-3">Activo</span>
+                        <button class="btn btn-outline-info w-100 btn-telemetria" data-bs-toggle="modal" data-bs-target="#modalTelemetria">Ver Telemetría</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4 tarjeta-proy" data-estado="pruebas">
+                <div class="card shadow-sm h-100 border-secondary">
+                    <a href="https://www.redalyc.org/journal/6735/673571919001/2389-9468-cpa-16-02-1_gf15.png" data-lightbox="galeria-robots" data-title="Estructura interna del CanSAT">
+                        <img class="card-img-top" src="https://www.redalyc.org/journal/6735/673571919001/2389-9468-cpa-16-02-1_gf15.png" alt="CanSAT">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title">Satélite CanSAT</h3>
+                        <span class="badge bg-warning text-dark mb-3">En pruebas</span>
+                        <button class="btn btn-outline-info w-100 btn-telemetria" data-bs-toggle="modal" data-bs-target="#modalTelemetria">Ver Telemetría</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4 tarjeta-proy" data-estado="activo">
+                <div class="card shadow-sm h-100 border-secondary">
+                    <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJSzffnJbkP0WsfYlCvESxA8In8pIO9rsaUiA4V7pbvDPsDIAA-8zufKE&s=10" data-lightbox="galeria-robots" data-title="Nodos WSN para estacionamiento">
+                        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJSzffnJbkP0WsfYlCvESxA8In8pIO9rsaUiA4V7pbvDPsDIAA-8zufKE&s=10" alt="Sistema WSN">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title">ParkUM WSN</h3>
+                        <span class="badge bg-success mb-3">Activo</span>
+                        <button class="btn btn-outline-info w-100 btn-telemetria" data-bs-toggle="modal" data-bs-target="#modalTelemetria">Ver Telemetría</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5" id="equipo">
+            <div class="col-12">
+                <h4 class="mb-4">EQUIPO</h4>
+                <p>Estudiantes de Ingeniería en Sistemas, Ailyn Illingworth Barrera.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5" id="contacto">
+            <div class="col-12 col-lg-8 mx-auto">
+                <div class="card border-secondary p-4 bg-dark">
+                    <h4 class="mb-3">Contacto</h4>
+                    <form id="formContacto" novalidate>
+                        <input type="email" class="form-control mb-3 bg-dark text-light border-secondary" placeholder="Correo" required>
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TELEMETRÍA (Fase 2) -->
+    <div class="modal fade" id="modalTelemetria" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light border-secondary">
+                <div class="modal-header">
+                    <h5 class="modal-title text-info">Dashboard: <span id="nombreRobot"></span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Batería: <span id="tel-bateria">--%</span></p>
+                    <ul id="logSensores" class="text-success small list-unstyled m-0"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS: Bootstrap, jQuery, Toastr y Lightbox2 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+    <!-- CÓDIGO JQUERY - FASE 3 -->
+    <script>
+        $(document).ready(function() {
+            // Inicializar Lightbox (Plugin)
+            lightbox.option({ 'resizeDuration': 200, 'wrapAround': true });
+
+            configurarFiltros();
+            configurarTelemetria();
+            configurarTema();
+            configurarNavegacion();
+        });
+
+        // ==========================================
+        // 1. TEMA CLARO/OSCURO Y CREACIÓN DOM
+        // ==========================================
+        function configurarTema() {
+            // Revisar persistencia
+            if(localStorage.getItem('temaLab') === 'light') {
+                $('html').attr('data-bs-theme', 'light');
+                $('#btn-tema').text('🌙 Cambiar Tema');
+                $('.bg-dark').removeClass('bg-dark text-light').addClass('bg-light text-dark');
+            }
+
+            $('#btn-tema').on('click', function() {
+                let temaActual = $('html').attr('data-bs-theme');
+                let nuevoTema = (temaActual === 'dark') ? 'light' : 'dark';
+                
+                $('html').attr('data-bs-theme', nuevoTema);
+                localStorage.setItem('temaLab', nuevoTema);
+
+                // Manipulación DOM: Crear y pre-pender un elemento <div> dinámicamente
+                let mensaje = nuevoTema === 'light' ? 'Modo claro activado' : 'Modo oscuro activado';
+                let $alerta = $('<div class="alert alert-info alerta-flotante shadow"><strong>Aviso:</strong> ' + mensaje + '</div>');
+                
+                // Efectos: .hide(), .fadeIn(), .delay(), .fadeOut() y manipulación .prepend() + .remove()
+                $('body').prepend($alerta);
+                $alerta.hide().fadeIn(400).delay(2000).fadeOut(400, function() {
+                    $(this).remove(); 
+                });
+
+                // Cambio de clases según tema para legibilidad
+                if (nuevoTema === 'light') {
+                    $(this).text('🌙 Cambiar Tema');
+                    $('.card.bg-dark, form input').removeClass('bg-dark text-light border-secondary').addClass('bg-light text-dark');
+                } else {
+                    $(this).text('☀️ Cambiar Tema');
+                    $('.card.bg-light, form input').removeClass('bg-light text-dark').addClass('bg-dark text-light border-secondary');
+                }
+            });
+        }
+
+        // ==========================================
+        // 2. SMOOTH SCROLL Y RECORRIDO DEL DOM AVANZADO
+        // ==========================================
+        function configurarNavegacion() {
+            $('.scroll-link').on('click', function(e) {
+                if (this.hash !== "") {
+                    e.preventDefault();
+                    let hash = this.hash;
+
+                    // Recorrido DOM Avanzado: .parent(), .siblings(), .find()
+                    // Subimos al <li>, buscamos a los hermanos, buscamos las <a> y quitamos activo
+                    $(this).parent().siblings().find('a').removeClass('active text-info fw-bold');
+                    
+                    // Agregamos activo al actual
+                    $(this).addClass('active text-info fw-bold');
+
+                    // Efecto de jQuery: .animate()
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 70
+                    }, 600);
+                }
+            });
+        }
+
+        // (Las funciones de Filtros y Telemetría se mantienen igual que en la Fase 2)
+        function configurarFiltros() {
+            $('.btn-filtro').on('click', function() {
+                $('.btn-filtro').removeClass('btn-primary').addClass('btn-outline-primary');
+                $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+                let filtro = $(this).attr('data-filtro');
+                if (filtro === 'todos') {
+                    $('.tarjeta-proy').fadeIn(400); 
+                } else {
+                    $('.tarjeta-proy').fadeOut(200).promise().done(function() {
+                        $('.tarjeta-proy[data-estado="' + filtro + '"]').fadeIn(200);
+                    });
+                }
+            });
+        }
+
+        function configurarTelemetria() {
+            let intervalo;
+            $('button').on('click', function() {
+                if ($(this).hasClass('btn-telemetria')) {
+                    let nombre = $(this).closest('.card-body').find('h3').text();
+                    $('#nombreRobot').text(nombre);
+                    $('#logSensores').empty();
+                    clearInterval(intervalo);
+                    intervalo = setInterval(function(){
+                        $('#tel-bateria').text(Math.floor(Math.random() * 100) + '%');
+                        $('<li>Dato: ' + (Math.random() * 10).toFixed(2) + '</li>').hide().appendTo('#logSensores').slideDown(200);
+                        if ($('#logSensores li').length > 4) $('#logSensores li:first').remove();
+                    }, 1500);
+                }
+            });
+            $('#modalTelemetria').on('hidden.bs.modal', function() { clearInterval(intervalo); });
+        }
+    </script>
+</body>
+</html>
